@@ -2,6 +2,7 @@ name: core
 version: '${version}'
 main: eu.felicianware.core.Main
 api-version: '1.20'
+folia-supported: true
 commands:
   help:
     description: Display server commands.
