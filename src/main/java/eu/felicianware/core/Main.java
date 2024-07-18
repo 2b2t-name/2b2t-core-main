@@ -1,5 +1,6 @@
 package eu.felicianware.core;
 
+import eu.felicianware.core.features.commands.DiscordCommand;
 import eu.felicianware.core.features.commands.HelpCommand;
 import eu.felicianware.core.features.commands.KillCommand;
 import eu.felicianware.core.managers.ConfigManager;
@@ -44,6 +45,7 @@ public final class Main extends JavaPlugin {
             // register commands here
             this.getCommand("help").setExecutor(new HelpCommand(configManager));
             this.getCommand("kill").setExecutor(new KillCommand());
+            this.getCommand("discord").setExecutor(new DiscordCommand());
 
             return true;
         } catch (Exception e) {
