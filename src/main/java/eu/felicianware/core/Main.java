@@ -3,6 +3,8 @@ package eu.felicianware.core;
 import eu.felicianware.core.features.commands.DiscordCommand;
 import eu.felicianware.core.features.commands.HelpCommand;
 import eu.felicianware.core.features.commands.KillCommand;
+import eu.felicianware.core.features.listeners.CrystalListener;
+import eu.felicianware.core.features.listeners.JoinLeaveListener;
 import eu.felicianware.core.managers.ConfigManager;
 import eu.felicianware.core.util.log;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -56,6 +58,9 @@ public final class Main extends JavaPlugin {
 
     private boolean loadListeners() {
         try {
+            // register listeners/events here
+            this.getServer().getPluginManager().registerEvents(new CrystalListener(this, configManager), this);
+            this.getServer().getPluginManager().registerEvents(new JoinLeaveListener(this), this);
             return true;
         } catch (Exception e) {
             log.severe("Error loading listeners: " + e.getMessage());
