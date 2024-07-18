@@ -1,0 +1,4 @@
+name: core
+version: '${version}'
+main: eu.felicianware.core.Core
+api-version: '1.20'
