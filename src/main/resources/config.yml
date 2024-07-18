@@ -7,6 +7,7 @@ messages:
     - "&3/ignore - Ignores a player in chat."
     - "&3/stats - Shows the server stats."
     - "&6----------------------"
+
 commands:
   enabled: true
 
