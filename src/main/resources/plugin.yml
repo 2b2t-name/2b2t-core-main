@@ -1,4 +1,4 @@
 name: core
 version: '${version}'
-main: eu.felicianware.core.Core
+main: eu.felicianware.core.Main
 api-version: '1.20'
