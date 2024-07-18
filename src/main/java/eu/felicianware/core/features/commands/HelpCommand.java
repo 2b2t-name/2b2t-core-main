@@ -13,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public class HelpCommand implements CommandExecutor {
-    private ConfigManager configManager;
+    private final ConfigManager configManager;
 
     public HelpCommand(ConfigManager configManager) {
         this.configManager = configManager;
@@ -21,8 +21,7 @@ public class HelpCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
-        if (sender instanceof Player) {
-            Player player = (Player) sender;
+        if (sender instanceof Player player) {
             List<String> helpMessages = configManager.getHelpMessages();
             if (helpMessages.isEmpty()) {
                 player.sendMessage(Component.text("No help message configured.", NamedTextColor.RED));
