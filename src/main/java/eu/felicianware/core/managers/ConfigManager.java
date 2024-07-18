@@ -31,7 +31,10 @@ public class ConfigManager {
     }
 
     private void addDefaults() {
-        config.addDefault("messages.help", List.of("config this", "line2", "line3", "etc"));
+        config.addDefault("messages.help", List.of("&6------ &3Commands &6------", "&3/help - Shows the commands.", "&3/kill - Kill yourself.", "&3/msg - Message a player.", "&3/ignore - Ignores a player in chat.", "&3/stats - Shows the server stats.", "&6----------------------"));
+        config.addDefault("crystal.place_delay_millis", 100);
+        config.addDefault("crystal.explosion_delay_ticks", 3);
+        config.addDefault("crystal.explosion_power", 6.0);
         config.options().copyDefaults(true);
         saveConfig();
     }
@@ -49,7 +52,15 @@ public class ConfigManager {
         plugin.getLogger().info("Configuration reloaded.");
     }
 
-    public List<String> getHelpMessages() {
-        return config.getStringList("messages.help");
+    public long getPlaceDelayMillis() {
+        return config.getLong("crystal.place_delay_millis");
+    }
+
+    public long getExplosionDelayTicks() {
+        return config.getLong("crystal.explosion_delay_ticks");
+    }
+
+    public float getExplosionPower() {
+        return (float) config.getDouble("crystal.explosion_power");
     }
 }
