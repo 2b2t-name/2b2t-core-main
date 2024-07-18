@@ -52,6 +52,10 @@ public class ConfigManager {
         plugin.getLogger().info("Configuration reloaded.");
     }
 
+    public List<String> getHelpMessages() {
+        return config.getStringList("messages.help");
+    }
+
     public long getPlaceDelayMillis() {
         return config.getLong("crystal.place_delay_millis");
     }
