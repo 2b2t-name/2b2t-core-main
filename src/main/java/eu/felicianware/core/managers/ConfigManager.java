@@ -1,5 +1,6 @@
 package eu.felicianware.core.managers;
 
+import lombok.Getter;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -9,8 +10,9 @@ import java.io.IOException;
 import java.util.List;
 
 public class ConfigManager {
-    private JavaPlugin plugin;
+    private final JavaPlugin plugin;
     private File configFile;
+    @Getter
     private FileConfiguration config;
 
     public ConfigManager(JavaPlugin plugin) {
@@ -32,10 +34,6 @@ public class ConfigManager {
         config.addDefault("messages.help", List.of("config this", "line2", "line3", "etc"));
         config.options().copyDefaults(true);
         saveConfig();
-    }
-
-    public FileConfiguration getConfig() {
-        return config;
     }
 
     public void saveConfig() {

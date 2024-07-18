@@ -1,6 +1,7 @@
 package eu.felicianware.core;
 
 import eu.felicianware.core.features.commands.HelpCommand;
+import eu.felicianware.core.features.commands.KillCommand;
 import eu.felicianware.core.managers.ConfigManager;
 import eu.felicianware.core.util.log;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -42,6 +43,7 @@ public final class Main extends JavaPlugin {
         try {
             // register commands here
             this.getCommand("help").setExecutor(new HelpCommand(configManager));
+            this.getCommand("kill").setExecutor(new KillCommand());
 
             return true;
         } catch (Exception e) {

@@ -1,8 +1,11 @@
 messages:
   help:
-    - "config this"
-    - "line2"
-    - "line3"
-    - "etc"
+    - "&6------ &3Commands &6------"
+    - "&3/help - Shows the commands."
+    - "&3/kill - Kill yourself."
+    - "&3/msg - Message a player."
+    - "&3/ignore - Ignores a player in chat."
+    - "&3/stats - Shows the server stats."
+    - "&6----------------------"
 commands:
   enabled: true
