@@ -4,3 +4,5 @@ messages:
     - "line2"
     - "line3"
     - "etc"
+commands:
+  enabled: true
