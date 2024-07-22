@@ -24,7 +24,6 @@ public class CrystalListener extends JavaPlugin implements Listener {
     }
 
     public CrystalListener(final JavaPlugin plugin) {
-        plugin
     }
 
     @EventHandler
