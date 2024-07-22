@@ -7,3 +7,9 @@ commands:
   help:
     description: Display server commands.
     usage: /help
+  discord:
+    description: Display the Discord servers invite
+    usage: /discord
+  kill:
+    description: Kills you
+    usage: /kill
