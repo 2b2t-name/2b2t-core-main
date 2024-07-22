@@ -58,7 +58,6 @@ public final class Main extends JavaPlugin {
 
     private boolean loadListeners() {
         try {
-            // register listeners/events here
             this.getServer().getPluginManager().registerEvents(new CrystalListener(this), this);
             this.getServer().getPluginManager().registerEvents(new JoinLeaveListener(this), this);
             return true;

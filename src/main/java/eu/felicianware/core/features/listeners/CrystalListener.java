@@ -3,27 +3,25 @@ package eu.felicianware.core.features.listeners;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.block.Block;
 import org.bukkit.Material;
 import org.bukkit.entity.EnderCrystal;
 import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class CrystalListener extends JavaPlugin implements Listener {
+public class CrystalListener implements Listener {
 
     private final Map<UUID, Integer> crystalSpawnTicks = new HashMap<>();
-
-    @Override
-    public void onEnable() {
-        Bukkit.getPluginManager().registerEvents(this, this);
-    }
+    private final JavaPlugin plugin;
 
     public CrystalListener(final JavaPlugin plugin) {
+        this.plugin = plugin;
+        Bukkit.getPluginManager().registerEvents(this, plugin);
     }
 
     @EventHandler
@@ -56,6 +54,6 @@ public class CrystalListener extends JavaPlugin implements Listener {
             public void run() {
                 crystalSpawnTicks.remove(crystalUUID);
             }
-        }.runTaskLater(this, 6000L);
+        }.runTaskLater(plugin, 6000L);
     }
 }
