@@ -23,6 +23,10 @@ public class CrystalListener extends JavaPlugin implements Listener {
         Bukkit.getPluginManager().registerEvents(this, this);
     }
 
+    public CrystalListener(final JavaPlugin plugin) {
+        plugin
+    }
+
     @EventHandler
     public void onCrystalBreak(BlockBreakEvent event) {
         Block block = event.getBlock();
