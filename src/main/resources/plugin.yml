@@ -5,5 +5,21 @@ api-version: '1.20'
 folia-supported: true
 commands:
   help:
-    description: Display server commands.
-    usage: /help
+    description: Shows the help commands
+  kill:
+    description: Kill yourself
+  discord:
+    description: Get the Discord link
+  2bcore-reload:
+    description: Reloads the 2bcore configuration
+    permission: 2bcore.admin
+  annoc:
+    description: Sets the tablist announcement.
+    permission: 2bcore.admin
+permissions:
+  2bcore.reload:
+    description: Allows the player to reload the 2bcore configuration
+    default: op
+  annoc:
+    description: Sets the tablist announcement.
+    default: op
