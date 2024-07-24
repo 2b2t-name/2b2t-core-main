@@ -13,7 +13,7 @@ commands:
 
 crystal:
   place_delay_millis: 100
-  explosion_delay_ticks: 3
+  explosion_delay_ticks: 4
   explosion_power: 6.0
 
 defaultConfig:
