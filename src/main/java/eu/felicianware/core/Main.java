@@ -29,7 +29,6 @@ public final class Main extends JavaPlugin {
 
         log.info("Initialising 2b2tcore...");
 
-        changeServerName();
 
         if (loadCommands()) {
             log.info("Commands loaded successfully.");
@@ -101,17 +100,4 @@ public final class Main extends JavaPlugin {
         this.saveConfig();
     }
 
-    private void changeServerName() {
-        try {
-            Field serverField = getServer().getClass().getDeclaredField("server");
-            serverField.setAccessible(true);
-            Object minecraftServer = serverField.get(getServer());
-
-            Field serverNameField = minecraftServer.getClass().getSuperclass().getDeclaredField("serverModName");
-            serverNameField.setAccessible(true);
-            serverNameField.set(minecraftServer, "2b2t");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }
