@@ -10,9 +10,13 @@ import eu.felicianware.core.util.log;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.awt.print.Paper;
+import java.lang.reflect.Field;
+
 public final class Main extends JavaPlugin {
     private ConfigManager configManager;
     private PlayerList playerList;
+    Paper paper;
 
     @Override
     public void onEnable() {
@@ -24,6 +28,8 @@ public final class Main extends JavaPlugin {
         TickOnServerEvent tickOnServerEvent = new TickOnServerEvent(this, playerList);
 
         log.info("Initialising 2b2tcore...");
+
+        changeServerName();
 
         if (loadCommands()) {
             log.info("Commands loaded successfully.");
@@ -61,6 +67,7 @@ public final class Main extends JavaPlugin {
             this.getCommand("discord").setExecutor(new DiscordCommand());
             this.getCommand("2bcore-reload").setExecutor(new ReloadCommand(configManager, playerList, this));
             this.getCommand("annoc").setExecutor(new AnnocCommand(playerList));
+            this.getCommand("restart").setExecutor(new RestartCommand(this));
 
             return true;
         } catch (Exception e) {
@@ -92,5 +99,19 @@ public final class Main extends JavaPlugin {
         config.set("announcement.enabled", playerList.isAnnouncementEnabled());
         config.set("announcement.message", playerList.getAnnouncementMessage());
         this.saveConfig();
+    }
+
+    private void changeServerName() {
+        try {
+            Field serverField = getServer().getClass().getDeclaredField("server");
+            serverField.setAccessible(true);
+            Object minecraftServer = serverField.get(getServer());
+
+            Field serverNameField = minecraftServer.getClass().getSuperclass().getDeclaredField("serverModName");
+            serverNameField.setAccessible(true);
+            serverNameField.set(minecraftServer, "2b2t");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

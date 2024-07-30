@@ -31,7 +31,6 @@ public class CrystalListener implements Listener {
 
     public CrystalListener(Plugin plugin, ConfigManager configManager) {
         this.plugin = plugin;
-        // Configurable delays and power
         long PLACE_DELAY_MILLIS = configManager.getPlaceDelayMillis();
         this.PLACE_DELAY_TICKS = PLACE_DELAY_MILLIS / 50;
         this.EXPLOSION_DELAY_TICKS = configManager.getExplosionDelayTicks();

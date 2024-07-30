@@ -16,6 +16,8 @@ commands:
   annoc:
     description: Sets the tablist announcement.
     permission: 2bcore.admin
+  restart:
+    description: Restart the server.
 permissions:
   2bcore.reload:
     description: Allows the player to reload the 2bcore configuration

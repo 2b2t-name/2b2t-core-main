@@ -21,26 +21,25 @@ public class TickOnServerEvent {
 
     public void onServerTick() {
         new BukkitRunnable() {
-            @Override
-            public void run() {
-                Map<Integer, String> placeholders = new HashMap<>();
-                placeholders.put(0, String.format("%.2f", plugin.getServer().getTPS()[0]));
-                placeholders.put(2, plugin.getServer().getIp());
+                @Override
+                public void run() {
+                    Map<Integer, String> placeholders = new HashMap<>();
+                    placeholders.put(0, String.format("%.2f", plugin.getServer().getTPS()[0]));
+                    placeholders.put(2, plugin.getServer().getIp());
 
-                int onlinePlayers = Bukkit.getOnlinePlayers().size();
-                placeholders.put(6, String.valueOf(onlinePlayers));
+                    int onlinePlayers = Bukkit.getOnlinePlayers().size();
+                    placeholders.put(6, String.valueOf(onlinePlayers));
 
-                for (Player player : Bukkit.getOnlinePlayers()) {
-                    Location playerLocation = player.getLocation();
+                    for (Player player : Bukkit.getOnlinePlayers()) {
+                        Location playerLocation = player.getLocation();
 
-                    placeholders.put(3, String.valueOf((int) playerLocation.getX()));
-                    placeholders.put(4, String.valueOf((int) playerLocation.getY()));
-                    placeholders.put(5, String.valueOf((int) playerLocation.getZ()));
-                    placeholders.put(7, String.valueOf(player.getPing()));
+                        placeholders.put(3, String.valueOf((int) playerLocation.getX()));
+                        placeholders.put(4, String.valueOf((int) playerLocation.getY()));
+                        placeholders.put(5, String.valueOf((int) playerLocation.getZ()));
+                        placeholders.put(7, String.valueOf(player.getPing()));
 
-                    playerList.updateAllPlayerListHeaders(placeholders);
-                }
-            }
+                        playerList.updateAllPlayerListHeaders(placeholders);}}
+
         }.runTaskTimer(plugin, 0L, 20L);
     }
 }
